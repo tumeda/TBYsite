@@ -6,6 +6,7 @@ from django import forms
 from example.joinform import views
 from example.joinform import forms
 from example.joinform import preview
+from django.views.generic.simple import direct_to_template
 
 admin.autodiscover()
 
@@ -14,9 +15,14 @@ urlpatterns = patterns('',
     (r'^jsi18n/(?P<packages>\S+?)/$', 'django.views.i18n.javascript_catalog'),
     (r'^join-form/$', views.join),
     (r'^post/$', preview.SomeModelFormPreview(forms.JoinForm)),
+    (r'^calendars_test/', include('schedule.urls')),
+    #url(r'^calendar_app$', direct_to_template,{"template":"homepage_schedule.html"}),
+
     #(r'^search/$', views.search),
     # just for testing - native way to sampleapp urls 
     # (r'^sampleapp-native/', include('sampleapp.urls')),
+    #url(r'^$', direct_to_template,{"template":"homepage_schedule.html"}),
+    
 )
 
 if settings.DEBUG:

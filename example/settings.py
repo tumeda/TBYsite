@@ -111,6 +111,7 @@ INSTALLED_APPS = (
     'south',
     'example.joinform',
     'django.contrib.formtools',
+    'schedule',
 )
 
 gettext = lambda s: s
