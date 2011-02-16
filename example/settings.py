@@ -22,7 +22,13 @@ DATABASE_SUPPORTS_TRANSACTIONS = True
 
 TIME_ZONE = 'America/Chicago'
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'jointemplebatyahm@gmail.com'
+EMAIL_HOST_PASSWORD = 'hashrocket'
+EMAIL_PORT = 587
 SITE_ID = 1
+
 
 USE_I18N = True
 
@@ -62,6 +68,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfResponseMiddleware',
     'cms.middleware.media.PlaceholderMediaMiddleware', 
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
@@ -101,7 +108,9 @@ INSTALLED_APPS = (
     'cms.plugins.inherit',
     'mptt',
     'example.sampleapp',
-    'south'
+    'south',
+    'example.joinform',
+    'django.contrib.formtools',
 )
 
 gettext = lambda s: s
