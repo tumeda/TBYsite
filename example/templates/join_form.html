@@ -1,0 +1,26 @@
+# contact_form.html
+{% load uni_form_tags %}
+<html>
+<head>
+    <title>Join TBY</title>
+</head>
+<body>
+    <h1>Temple Bat Yahm
+Membership Application</h1>
+
+    {% if form.errors %}
+        <p style="color: red;">
+            Please correct the error{{ form.errors|pluralize }} below.
+        </p>
+    {% endif %}
+
+    <form action="" method="post" class="uniForm">
+
+       <table>
+	               {{ form.as_table }}
+	           </table>
+	           <input type="submit" value="Submit">
+
+    </form>
+</body>
+</html>
